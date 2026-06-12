@@ -1,0 +1,67 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<title>Chilya Clinical Lab</title>
+<link rel="stylesheet" href="css/style.css"></head><body>
+<h1>🏥 Chilya Clinical Lab</h1>
+<div id="home">
+<button onclick="show('patient')">Pendaftaran Pasien</button>
+<button onclick="show('login')">Login Admin</button>
+</div>
+
+<div id="patient" class="hidden">
+<h2>Data Pasien</h2>
+<input id="nama" placeholder="Nama Lengkap">
+<input id="nik" placeholder="NIK">
+<input id="hp" placeholder="No HP">
+<select id="jk"><option>Laki-laki</option><option>Perempuan</option></select>
+<textarea id="alamat" placeholder="Alamat"></textarea>
+<button onclick="nextService()">Next</button>
+</div>
+
+<div id="service" class="hidden">
+<h2>Pilih Layanan</h2>
+<select id="layanan" onchange="serviceChange()">
+<option value="periksa">Pemeriksaan Langsung</option>
+<option value="dokter">Konsultasi Dokter</option>
+</select>
+
+<div id="dokterBox" class="hidden">
+<select id="dokter">
+<option>dr. Andini, Sp.PK</option>
+<option>dr. Bunga, Sp.PK</option>
+<option>dr. Citra, Sp.PK</option>
+<option>dr. Dimas, Sp.MK</option>
+<option>dr. Eka, Sp.MK</option>
+</select>
+</div>
+
+<div id="periksaBox">
+<details><summary>Hematologi</summary><label><input type="checkbox" value="Hb">Hb</label><label><input type="checkbox" value="Leukosit">Leukosit</label><label><input type="checkbox" value="Eritrosit">Eritrosit</label><label><input type="checkbox" value="Hematokrit">Hematokrit</label><label><input type="checkbox" value="Trombosit">Trombosit</label></details>
+<details><summary>Imunoserologi</summary><label><input type="checkbox" value="HIV">HIV</label><label><input type="checkbox" value="Sifilis">Sifilis</label><label><input type="checkbox" value="HBsAg">HBsAg</label><label><input type="checkbox" value="Anti-HAV">Anti-HAV</label></details>
+<details><summary>Fungsi Ginjal</summary><label><input type="checkbox" value="Ureum">Ureum</label><label><input type="checkbox" value="Kreatinin">Kreatinin</label><label><input type="checkbox" value="Asam Urat">Asam Urat</label></details>
+<details><summary>Fungsi Hati</summary><label><input type="checkbox" value="SGOT">SGOT</label><label><input type="checkbox" value="SGPT">SGPT</label><label><input type="checkbox" value="Bilirubin Total">Bilirubin Total</label><label><input type="checkbox" value="Bilirubin Direk">Bilirubin Direk</label></details>
+<details><summary>Mikrobiologi</summary><label><input type="checkbox" value="BTA">BTA</label></details>
+<details><summary>MCU</summary><label><input type="checkbox" value="MCU Basic">MCU Basic</label><label><input type="checkbox" value="MCU Standard">MCU Standard</label><label><input type="checkbox" value="MCU Executive">MCU Executive</label></details>
+</div>
+<button onclick="registerPatient()">Selesaikan Pendaftaran</button>
+</div>
+
+<div id="ticket" class="hidden"></div>
+
+<div id="login" class="hidden">
+<h2>Login Admin</h2>
+<input id="u" placeholder="Username">
+<input id="p" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+</div>
+
+<div id="admin" class="hidden">
+<h2>Dashboard Admin</h2>
+<button onclick="loadPatients()">Data Pasien</button>
+<button onclick="daily()">Rekap Harian</button>
+<button onclick="monthly()">Rekap Bulanan</button>
+<button onclick="csvExport()">Download CSV</button>
+<pre id="out"></pre>
+</div>
+
+<script src="js/app.js"></script>
+</body></html>
